@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "prologue"
+version = "0.1.0"
+description = "powered by COURTVISION®"
+authors = ["hex benjamin <hex@hexbenjam.in>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+reflex = "^0.3.6"
+
+[tool.poetry.dev-dependencies]
+sourcery = "^1.14.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
