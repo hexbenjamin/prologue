@@ -1,9 +1,79 @@
 @keyframes bg-slide {
     0% {
-        transform: translateX(0);
+        background-position-x: 0;
     }
 
     100% {
-        transform: translateX(-50%);
+        background-position-x: -50vw;
     }
+}
+
+@keyframes bg-up {
+    0% {
+        background-position-y: 0;
+    }
+
+    100% {
+        background-position-y: 50vh;
+    }
+}
+
+@keyframes bg-down {
+    0% {
+        background-position-y: 0;
+    }
+
+    100% {
+        background-position-y: -50vh;
+    }
+}
+
+@keyframes bg-left {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: 50vw;
+    }
+}
+
+@keyframes bg-right {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: -50vw;
+    }
+}
+
+
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    animation: bg-slide 7s linear infinite;
+    background-image: url('/images/bricks.png');
+    background-repeat: repeat;
+    background-size: 25vw auto;
+    z-index: -1;
+}
+
+.viewport {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.frame-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
 }

@@ -2,6 +2,8 @@
 from rxconfig import config
 import reflex as rx
 
+from .components import background
+
 
 class State(rx.State):
     """The app state."""
@@ -10,12 +12,24 @@ class State(rx.State):
 
 
 @rx.page("/", title="Prologue", image="favicon.ico")
-def index() -> rx.Component:
-    return rx.vstack(
-        rx.container(
-            class_name="background",
+def dom_bruh() -> rx.Component:
+    return background(
+        rx.image(
+            src="/images/dom_bruh.png",
+            width="42vw",
+            box_shadow="0 0 10px 10px #d3bd7088",
         ),
-        class_name="viewport",
+    )
+
+
+@rx.page("/scrollin", title="Scrollogue .", image="favicon.ico")
+def scrollin() -> rx.Component:
+    return background(
+        rx.image(
+            src="/images/dom_bruh.png",
+            width="42vw",
+            box_shadow="0 0 10px 10px #d3bd7088",
+        ),
     )
 
 
