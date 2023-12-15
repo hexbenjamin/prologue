@@ -5,15 +5,17 @@ from ..state import ScrollState
 
 def background(content):
     return rx.box(
-        buttons(),
+        rx.tablet_and_desktop(buttons()),
         rx.vstack(
             content,
             justify_content="center",
             width="100%",
             height="100%",
         ),
-        class_name="background",
-        background_position=ScrollState.bg_position,
+        width="100vw",
+        height="100vh",
+        # class_name="background",
+        # background_position=ScrollState.bg_position,
     )
 
 
@@ -23,10 +25,13 @@ def create_button(direction, on_click):
             rx.icon(tag=f"chevron_{direction}"),
             variant="outline",
             on_click=on_click,
-            color="magenta",
-            background_color="white",
+            color="#ffc8ff",
+            border_color="#ffc8ff80",
+            border_width="2px",
+            icon_spacing=0,
             is_disabled=getattr(ScrollState, f"{direction}_disabled"),
             z_index=1,
+            width="1rem",
         ),
         class_name="btn-frame",
     )
