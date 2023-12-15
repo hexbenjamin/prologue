@@ -41,9 +41,3 @@
 .frame {
     overflow: visible;
 }
-
-/*
-background-image: url('/images/bricks.png');
-background-repeat: repeat;
-background-size: calc(max(50vh, 50vw)) auto;
-*/
