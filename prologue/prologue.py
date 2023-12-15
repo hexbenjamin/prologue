@@ -2,35 +2,23 @@
 from rxconfig import config
 import reflex as rx
 
-from .components import background
+from .components import background, frame_grid
 
 
-class State(rx.State):
-    """The app state."""
-
-    pass
-
-
-@rx.page("/", title="Prologue", image="favicon.ico")
+@rx.page("/bruh", title="Prologue", image="favicon.ico")
 def dom_bruh() -> rx.Component:
     return background(
         rx.image(
             src="/images/dom_bruh.png",
-            width="42vw",
+            width="calc(min(42vw, 42vh))",
             box_shadow="0 0 10px 10px #d3bd7088",
         ),
     )
 
 
-@rx.page("/scrollin", title="Scrollogue .", image="favicon.ico")
-def scrollin() -> rx.Component:
-    return background(
-        rx.image(
-            src="/images/dom_bruh.png",
-            width="42vw",
-            box_shadow="0 0 10px 10px #d3bd7088",
-        ),
-    )
+@rx.page("/", title="Prologue : Griddery", image="favicon.ico")
+def griddin() -> rx.Component:
+    return background(frame_grid())
 
 
 # Add state and page to the app.

@@ -1,4 +1,12 @@
 [[package]]
+name = "addict"
+version = "2.4.0"
+description = "Addict is a dictionary whose items can be set using both attribute and item syntax."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "alembic"
 version = "1.13.0"
 description = "A database migration tool for SQLAlchemy."
@@ -737,6 +745,7 @@ python-versions = ">=3.8"
 [package.dependencies]
 click = ">=7.0"
 h11 = ">=0.8"
+typing-extensions = {version = ">=4.0", markers = "python_version < \"3.11\""}
 
 [package.extras]
 standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)", "pyyaml (>=5.1)", "uvloop (>=0.14.0,!=0.15.0,!=0.15.1)", "watchfiles (>=0.13)", "websockets (>=10.4)"]
@@ -804,9 +813,10 @@ requests = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "00bcd2c751352ddbee32700ce80172d462b3881af6f30b5ea23a61c10f2f3a93"
+content-hash = "d5a059399c42389313e293bc66f8b88604ddacb732e242c245bc633567330065"
 
 [metadata.files]
+addict = []
 alembic = []
 anyio = []
 async-timeout = []

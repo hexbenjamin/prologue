@@ -1,79 +1,60 @@
-@keyframes bg-slide {
-    0% {
-        background-position-x: 0;
-    }
-
-    100% {
-        background-position-x: -50vw;
-    }
-}
-
-@keyframes bg-up {
-    0% {
-        background-position-y: 0;
-    }
-
-    100% {
-        background-position-y: 50vh;
-    }
-}
-
-@keyframes bg-down {
-    0% {
-        background-position-y: 0;
-    }
-
-    100% {
-        background-position-y: -50vh;
-    }
-}
-
-@keyframes bg-left {
-    0% {
-        background-position-x: 0;
-    }
-
-    100% {
-        background-position-x: 50vw;
-    }
-}
-
-@keyframes bg-right {
-    0% {
-        background-position-x: 0;
-    }
-
-    100% {
-        background-position-x: -50vw;
-    }
-}
-
-
-
 .background {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     width: 100vw;
     height: 100vh;
-    animation: bg-slide 7s linear infinite;
+    /* animation: bg-down 1.2s ease-in-out; */
+    transition: background-position 1.2s ease-in-out;
     background-image: url('/images/bricks.png');
     background-repeat: repeat;
-    background-size: 25vw auto;
-    z-index: -1;
+    background-size: calc(max(50vh, 50vw)) auto;
+    z-index: 0;
+    overflow: hidden;
 }
 
-.viewport {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        ". up ."
+        "left . right"
+        ". down .";
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-frame {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    z-index: 1;
 }
 
 .frame-grid {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    grid-template-columns: repeat(6, 100vw);
+    grid-template-rows: repeat(3, 100vh);
+    grid-template-areas:
+        "A1 A2 A3 A4 A5 A5"
+        "B1 B2 B3 B4 B5 B6"
+        "C1 C2 C3 C4 C5 C6";
+    gap: 0px 0px;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1.2s ease-in-out;
+}
+
+.frame {
+    overflow: visible;
 }
