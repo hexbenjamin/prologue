@@ -4,9 +4,10 @@ CFG = Dict()
 
 CFG.frames = Dict()
 
+
 CFG.frames.A1 = {
     "img": "chapter1.png",
-    "width": 42,
+    "width": 50,
     "x": 0,
     "y": 0,
     "rotate": 0,
@@ -37,7 +38,7 @@ CFG.frames.A5 = {
 }
 
 CFG.frames.B1 = {
-    "img": "chapter1.png",
+    "img": "chapter4.png",
     "width": 42,
     "x": 0,
     "y": 0,
@@ -46,7 +47,7 @@ CFG.frames.B1 = {
 
 CFG.frames.B3 = {
     "img": "chapter5.png",
-    "width": 42,
+    "width": 55,
     "x": 0,
     "y": 0,
     "rotate": 0,
@@ -54,7 +55,7 @@ CFG.frames.B3 = {
 
 CFG.frames.B4 = {
     "img": "centerpiece.png",
-    "width": 76,
+    "width": 105,
     "x": 0,
     "y": 0,
     "rotate": 0,
@@ -62,7 +63,7 @@ CFG.frames.B4 = {
 
 CFG.frames.B5 = {
     "img": "bonus1.png",
-    "width": 69,
+    "width": 88,
     "x": 0,
     "y": 0,
     "rotate": 0,
