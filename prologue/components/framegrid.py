@@ -11,7 +11,8 @@ from ..config import CFG
 def frame_grid():
     return rx.grid(
         *add_frames(),
-        class_name="frame-grid",
+        class_name=["frame-grid", "background"],
+        overflow="hidden",
         transform=ScrollState.translation,
     )
 
