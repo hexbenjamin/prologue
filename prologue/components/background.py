@@ -6,12 +6,7 @@ from ..state import ScrollState
 def background(content):
     return rx.box(
         rx.tablet_and_desktop(buttons()),
-        rx.vstack(
-            content,
-            justify_content="center",
-            width="100%",
-            height="100%",
-        ),
+        content,
         width="100vw",
         height="100vh",
         class_name="background",

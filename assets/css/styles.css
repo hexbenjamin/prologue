@@ -1,20 +1,3 @@
-.background {
-    position: relative;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    /* animation: bg-down 1.2s ease-in-out; */
-    transition: background-position 1.2s ease-in-out;
-    background-image: url('/images/bricks.png');
-    background-repeat: repeat;
-    background-size: calc(max(50vh, 50vw)) auto;
-    z-index: 0;
-    overflow: hidden;
-}
-
 .btn-grid {
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
@@ -35,7 +18,7 @@
     height: 100%;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 0;
     z-index: 1;
 }
 

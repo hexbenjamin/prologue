@@ -1,22 +1,23 @@
 import itertools
-from os import getcwd
-from os.path import exists, join
 
 import reflex as rx
 
 from ..state import ScrollState
-from ..config import CFG
+from .. import config as CFG
 
 
 def frame_grid():
     return rx.grid(
-        *add_frames(),
+        *make_frames(),
         class_name="frame-grid",
         transform=ScrollState.translation,
+        background_image="/images/bricks.png",
+        background_repeat="repeat",
+        background_size="calc(max(50vh, 50vw)) auto",
     )
 
 
-def add_frames():
+def make_frames():
     frames = []
     for row, col in itertools.product("ABC", range(1, 7)):
         frame_id = f"{row}{col}"
@@ -24,12 +25,17 @@ def add_frames():
             frame_dict = CFG.frames[frame_id]
             img_src = f"/images/frames/{frame_dict['img']}"
             width = f"calc(min({frame_dict['width']}vw, {frame_dict['width']}vh))"
+
+            translate = f"translate({frame_dict['x']}%, {frame_dict['y']}%)"
+            rotate = f"rotate({frame_dict['rotate']}deg)"
+            transform = f"{translate} {rotate}"
+
             frm = rx.grid_item(
                 rx.image(
                     src=img_src,
                     width=width,
                     height="auto",
-                    transform=f"translate({frame_dict['x']}%, {frame_dict['y']}%) rotate({frame_dict['rotate']}deg)",
+                    transform=transform,
                 ),
                 area=frame_id,
                 align_self="center",
@@ -37,5 +43,7 @@ def add_frames():
                 class_name="frame",
                 width=width,
             )
+
             frames.append(frm)
+
     return frames
