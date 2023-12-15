@@ -14,8 +14,8 @@ def background(content):
         ),
         width="100vw",
         height="100vh",
-        # class_name="background",
-        # background_position=ScrollState.bg_position,
+        class_name="background",
+        background_position=ScrollState.bg_position,
     )
 
 
