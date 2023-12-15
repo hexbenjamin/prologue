@@ -8,6 +8,7 @@ authors = ["hex benjamin <hex@hexbenjam.in>"]
 python = "^3.10"
 reflex = "^0.3.6"
 addict = "^2.4.0"
+toml = "^0.10.2"
 
 [tool.poetry.dev-dependencies]
 sourcery = "^1.14.0"

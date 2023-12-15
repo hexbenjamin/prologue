@@ -681,6 +681,14 @@ python-versions = ">=3.7"
 widechars = ["wcwidth"]
 
 [[package]]
+name = "toml"
+version = "0.10.2"
+description = "Python Library for Tom's Obvious, Minimal Language"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
 name = "typer"
 version = "0.9.0"
 description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
@@ -813,7 +821,7 @@ requests = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "d5a059399c42389313e293bc66f8b88604ddacb732e242c245bc633567330065"
+content-hash = "699c2e7364cb6b0890a866ae3364b1fd833195cd115c70ef45ccaa15d956044e"
 
 [metadata.files]
 addict = []
@@ -867,6 +875,7 @@ sqlmodel = []
 starlette = []
 starlette-admin = []
 tabulate = []
+toml = []
 typer = []
 typing-extensions = []
 urllib3 = []
