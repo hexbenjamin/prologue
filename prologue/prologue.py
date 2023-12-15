@@ -3,6 +3,7 @@ from rxconfig import config
 import reflex as rx
 
 from .components import background, frame_grid
+from .state import ScrollState
 
 
 @rx.page("/bruh", title="Prologue", image="favicon.ico")
@@ -16,8 +17,8 @@ def dom_bruh() -> rx.Component:
     )
 
 
-@rx.page("/", title="Prologue", image="favicon.ico")
-def griddin() -> rx.Component:
+@rx.page("/", title="Prologue", image="favicon.ico", on_load=ScrollState.initialize)
+def index() -> rx.Component:
     return background(frame_grid())
 
 

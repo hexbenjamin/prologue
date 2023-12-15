@@ -9,6 +9,10 @@ class ScrollState(rx.State):
     cols: int = 6
     rows: int = 3
 
+    def initialize(self):
+        self.pos_x = 0
+        self.pos_y = 0
+
     @rx.var
     def bg_position(self) -> str:
         return f"{self.pos_x * 100}vw {self.pos_y * 100}vh"
