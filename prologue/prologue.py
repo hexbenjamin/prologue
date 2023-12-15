@@ -16,7 +16,7 @@ def dom_bruh() -> rx.Component:
     )
 
 
-@rx.page("/", title="Prologue : Griddery", image="favicon.ico")
+@rx.page("/", title="Prologue", image="favicon.ico")
 def griddin() -> rx.Component:
     return background(frame_grid())
 
