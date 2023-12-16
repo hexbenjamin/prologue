@@ -1,6 +1,6 @@
 import reflex as rx
 
-from ..state import ScrollState, ButtonState
+from ..state import PrologueState, ButtonState
 from ..config import CFG
 
 
@@ -24,10 +24,10 @@ def create_button(direction, on_click):
 
 def create_btngrid():
     directions = {
-        "left": ScrollState.left,
-        "up": ScrollState.up,
-        "down": ScrollState.down,
-        "right": ScrollState.right,
+        "left": PrologueState.left,
+        "up": PrologueState.up,
+        "down": PrologueState.down,
+        "right": PrologueState.right,
     }
     grid_items = [
         rx.grid_item(

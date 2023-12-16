@@ -24,6 +24,8 @@
 
 .frame {
     overflow: visible;
+    pointer-events: none;
+    user-select: none;
 }
 
 .frame-grid {

@@ -3,10 +3,10 @@ from rxconfig import config
 import reflex as rx
 
 from .components import button_grid, frame_grid
-from .state import ScrollState, SwipeState
+from .state import PrologueState, SwipeState
 
 
-@rx.page("/", title="Prologue", image="favicon.ico", on_load=ScrollState.initialize)
+@rx.page("/", title="Prologue", image="favicon.ico", on_load=PrologueState.initialize)
 def index() -> rx.Component:
     return rx.box(
         rx.script(

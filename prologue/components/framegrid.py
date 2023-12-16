@@ -2,20 +2,21 @@ import itertools
 
 import reflex as rx
 
-from ..state import ScrollState, SwipeState
+from ..state import PrologueState, SwipeState
 from ..config import CFG
 
 
 def frame_grid():
     return rx.grid(
         *make_frames(),
-        style={"--pos-x": ScrollState.pos_x, "--pos-y": ScrollState.pos_y},
+        style={"--pos-x": PrologueState.pos_x, "--pos-y": PrologueState.pos_y},
         class_name="frame-grid",
         background_image=CFG.grid.bg.path,
         background_repeat=CFG.grid.bg.repeat,
         background_size=f"{CFG.grid.bg.size}px auto",
-        transform=ScrollState.translation,
+        transform=PrologueState.translation,
         on_mouse_down=SwipeState.get_start,
+        on_mouse_up=SwipeState.get_end,
     )
 
 
