@@ -2,18 +2,20 @@ import itertools
 
 import reflex as rx
 
-from ..state import ScrollState
-from .. import config as CFG
+from ..state import ScrollState, SwipeState
+from ..config import CFG
 
 
 def frame_grid():
     return rx.grid(
         *make_frames(),
+        style={"--pos-x": ScrollState.pos_x, "--pos-y": ScrollState.pos_y},
         class_name="frame-grid",
+        background_image=CFG.grid.bg.path,
+        background_repeat=CFG.grid.bg.repeat,
+        background_size=f"{CFG.grid.bg.size}px auto",
         transform=ScrollState.translation,
-        background_image="/images/bricks.png",
-        background_repeat="repeat",
-        background_size="calc(max(50vh, 50vw)) auto",
+        on_mouse_down=SwipeState.get_start,
     )
 
 
@@ -21,8 +23,8 @@ def make_frames():
     frames = []
     for row, col in itertools.product("ABC", range(1, 7)):
         frame_id = f"{row}{col}"
-        if frame_id in CFG.frames.keys():
-            frame_dict = CFG.frames[frame_id]
+        if frame_id in CFG.grid.frames.keys():
+            frame_dict = CFG.grid.frames[frame_id]
             img_src = f"/images/frames/{frame_dict['img']}"
             width = f"calc(min({frame_dict['width']}vw, {frame_dict['width']}vh))"
 

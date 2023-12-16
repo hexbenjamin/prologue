@@ -2,24 +2,32 @@
 from rxconfig import config
 import reflex as rx
 
-from .components import background, frame_grid
-from .state import ScrollState
-
-
-@rx.page("/bruh", title="Prologue", image="favicon.ico")
-def dom_bruh() -> rx.Component:
-    return background(
-        rx.image(
-            src="/images/dom_bruh.png",
-            width="calc(min(42vw, 42vh))",
-            box_shadow="0 0 10px 10px #d3bd7088",
-        ),
-    )
+from .components import button_grid, frame_grid
+from .state import ScrollState, SwipeState
 
 
 @rx.page("/", title="Prologue", image="favicon.ico", on_load=ScrollState.initialize)
 def index() -> rx.Component:
-    return background(frame_grid())
+    return rx.box(
+        rx.script(
+            """let mousePosition = { x: 0, y: 0 };
+
+            document.addEventListener('mousemove', function(e) {
+                mousePosition.x = e.clientX;
+                mousePosition.y = e.clientY;
+            });"""
+        ),
+        rx.tablet_and_desktop(button_grid()),
+        frame_grid(),
+        position="fixed",
+        width="100vw",
+        height="100vh",
+        display="flex",
+        justify_content="center",
+        align_items="center",
+        overflow="hidden",
+        id="prologue",
+    )
 
 
 # Add state and page to the app.

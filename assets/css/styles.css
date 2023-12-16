@@ -9,8 +9,8 @@
         ". down .";
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 90vw;
+    height: 90vh;
 }
 
 .btn-frame {
@@ -20,6 +20,10 @@
     align-items: center;
     padding: 0;
     z-index: 1;
+}
+
+.frame {
+    overflow: visible;
 }
 
 .frame-grid {
@@ -36,8 +40,5 @@
     justify-content: center;
     align-items: center;
     transition: transform 1.2s ease-in-out;
-}
-
-.frame {
-    overflow: visible;
+    overflow: hidden;
 }
