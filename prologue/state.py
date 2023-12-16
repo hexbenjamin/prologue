@@ -1,7 +1,7 @@
 import math
 import reflex as rx
 
-from rich import inspect
+from .config import CFG
 
 
 def calc_direction(start, end):
@@ -35,8 +35,18 @@ class PrologueState(rx.State):
         self.pos_y = 0
 
     @rx.var
+    def loc_x(self) -> str:
+        return f"calc(min({CFG.grid.container.scale}vw, {CFG.grid.container.scale}vh) * {self.pos_x})"
+
+    @rx.var
+    def loc_y(self) -> str:
+        return f"calc(min({CFG.grid.container.scale}vw, {CFG.grid.container.scale}vh) * {self.pos_y})"
+
+    @rx.var
     def translation(self) -> str:
-        return f"translate({self.pos_x * 100}vw, {self.pos_y * 100}vh)"
+        min_dim = f"min({CFG.grid.container.scale}vw, {CFG.grid.container.scale}vh)"
+        print(f"translate({self.loc_x}, {self.loc_y})")
+        return f"translate({self.loc_x}, {self.loc_y})"
 
     def left(self):
         if self.pos_x != 0:
@@ -114,7 +124,7 @@ class ButtonState(PrologueState):
 
     @rx.var
     def right_disabled(self) -> bool:
-        return self.pos_x == self.cols - 1
+        return self.pos_x == (self.cols - 1) * -1
 
     @rx.var
     def up_disabled(self) -> bool:
@@ -122,4 +132,4 @@ class ButtonState(PrologueState):
 
     @rx.var
     def down_disabled(self) -> bool:
-        return self.pos_y == self.rows - 1
+        return self.pos_y == (self.rows - 1) * -1

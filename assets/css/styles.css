@@ -7,8 +7,9 @@
         ". up ."
         "left . right"
         ". down .";
-    justify-content: space-between;
-    align-items: center;
+    position: absolute;
+    top: 5vw;
+    left: 5vw;
     width: 90vw;
     height: 90vh;
 }
@@ -32,11 +33,6 @@
 }
 
 .frame-grid {
-    position: absolute;
-    top: 0;
-    left: 0;
-    grid-template-columns: repeat(6, 100vw);
-    grid-template-rows: repeat(3, 100vh);
     grid-template-areas:
         "A1 A2 A3 A4 A5 A5"
         "B1 B2 B3 B4 B5 B6"
@@ -45,5 +41,11 @@
     justify-content: center;
     align-items: center;
     transition: transform 1.2s ease-in-out;
-    overflow: hidden;
+    background-clip: content-box;
+}
+
+.frame-grid-container {
+    position: absolute;
+    top: 0;
+    left: 0;
 }

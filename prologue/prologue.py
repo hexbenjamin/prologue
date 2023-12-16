@@ -3,7 +3,7 @@ from rxconfig import config
 import reflex as rx
 
 from .components import button_grid, frame_grid
-from .state import PrologueState, SwipeState
+from .state import PrologueState
 
 
 @rx.page("/", title="Prologue", image="favicon.ico", on_load=PrologueState.initialize)
@@ -25,7 +25,9 @@ def index() -> rx.Component:
             document.addEventListener('mousemove', handleMoveEvent);
             document.addEventListener('touchmove', handleMoveEvent);"""
         ),
-        rx.tablet_and_desktop(button_grid()),
+        # rx.tablet_and_desktop(
+        button_grid(),
+        # ),
         frame_grid(),
         position="fixed",
         width="100vw",

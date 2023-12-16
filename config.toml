@@ -15,17 +15,21 @@ path = "/images/bricks.png"
 repeat = "repeat"
 size = 420
 
+#~ container
+[grid.container]
+scale = 80  # in %
+
 #~ frames
 [grid.frames.A1]
 img = "chapter1.png"
-width = 50
+width = 93
 x = 0
-y = 0
+y = 10
 rotate = 0
 
 [grid.frames.A2]
 img = "chapter2.png"
-width = 42
+width = 100
 x = 0
 y = 0
 rotate = 0
