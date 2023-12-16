@@ -69,40 +69,42 @@ class SwipeState(PrologueState):
     def get_start(self):
         return [
             rx.call_script(
-                '["start", [mousePosition.x, mousePosition.y]]',
-                callback=SwipeState.update_coords,
+                "[mousePosition.x, mousePosition.y]",
+                callback=SwipeState.update_start,
             )
         ]
+
+    def update_start(self, coords):
+        self.set_swipe_start(coords)
+        # print("start!", self.swipe_start)
 
     def get_end(self):
         return [
             rx.call_script(
-                '["end", [mousePosition.x, mousePosition.y]]',
-                callback=SwipeState.update_coords,
+                "[mousePosition.x, mousePosition.y]",
+                callback=SwipeState.update_end,
             )
         ]
 
-    def update_coords(self, result):
-        state, coords = result
-        self.mouse_x, self.mouse_y = coords
-        if state == "start":
-            self.swipe_start = coords
-            # print("start!", self.swipe_start)
-        elif state == "end":
-            self.swipe_end = coords
-            # print("end!", self.swipe_end)
-            # print("direction:", calc_direction(self.swipe_start, self.swipe_end))
-            if calc_distance(self.swipe_start, self.swipe_end) > 50:
-                direction = calc_direction(self.swipe_start, self.swipe_end)
-                if "N" in direction:
-                    self.up()
-                if "S" in direction:
-                    self.down()
-                if "E" in direction:
-                    self.right()
-                if "W" in direction:
-                    self.left()
-            self.reset_swipe()
+    def update_end(self, coords):
+        self.set_swipe_end(coords)
+        # print("end!", self.swipe_end)
+        # print("direction:", calc_direction(self.swipe_start, self.swipe_end))
+        self.trigger_move()
+        self.reset_swipe()
+
+    def trigger_move(self):
+        if calc_distance(self.swipe_start, self.swipe_end) <= 50:
+            return
+        direction = calc_direction(self.swipe_start, self.swipe_end)
+        if "N" in direction:
+            self.up()
+        if "S" in direction:
+            self.down()
+        if "E" in direction:
+            self.right()
+        if "W" in direction:
+            self.left()
 
 
 class ButtonState(PrologueState):

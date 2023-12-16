@@ -12,10 +12,18 @@ def index() -> rx.Component:
         rx.script(
             """let mousePosition = { x: 0, y: 0 };
 
-            document.addEventListener('mousemove', function(e) {
-                mousePosition.x = e.clientX;
-                mousePosition.y = e.clientY;
-            });"""
+            function handleMoveEvent(e) {
+                if (e.type === 'mousemove') {
+                    mousePosition.x = e.clientX;
+                    mousePosition.y = e.clientY;
+                } else if (e.type === 'touchmove') {
+                    mousePosition.x = e.touches[0].clientX;
+                    mousePosition.y = e.touches[0].clientY;
+                }
+            }
+
+            document.addEventListener('mousemove', handleMoveEvent);
+            document.addEventListener('touchmove', handleMoveEvent);"""
         ),
         rx.tablet_and_desktop(button_grid()),
         frame_grid(),
