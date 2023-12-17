@@ -53,7 +53,7 @@ class PrologueState(rx.State):
             # print(f"L: {self.translation}")
 
     def right(self):
-        if self.pos_x != self.cols - 1:
+        if self.pos_x != -(self.cols - 1):
             self.pos_x -= 1
             # print(f"R: {self.translation}")
 
@@ -63,7 +63,7 @@ class PrologueState(rx.State):
             # print(f"U: {self.translation}")
 
     def down(self):
-        if self.pos_y != self.rows - 1:
+        if self.pos_y != -(self.rows - 1):
             self.pos_y -= 1
             # print(f"D: {self.translation}")
 
