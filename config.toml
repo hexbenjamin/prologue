@@ -1,77 +1,77 @@
 #+ BUTTON SETTINGS
 
 [buttons]
-color = "#ff88ff"  # icon color
-border_color = "#ff69ff"  # border color
+color = "#ffaaff"  # icon color
+border_color = "#ffeeff"  # border color
 border_opacity = 160  # 0-255
 border_width = 2  # in px
 
 
 #+ GRID SETTINGS
+[grid]
+speed = 0.7  # in seconds
+scale = 80  # in %
+
 
 #~ background
 [grid.bg]
 path = "/images/bricks.png"
 repeat = "repeat"
-size = 420
-
-#~ container
-[grid.container]
-scale = 80  # in %
+size = 420  # in px
 
 #~ frames
 [grid.frames.A1]
 img = "chapter1.png"
-width = 93
-x = 0
-y = 10
+scale = 100
+x = -2
+y = 7
 rotate = 0
 
 [grid.frames.A2]
 img = "chapter2.png"
-width = 100
+scale = 88
 x = 0
-y = 0
+y = 10
 rotate = 0
 
 [grid.frames.A3]
 img = "chapter3.png"
-width = 42
-x = 0
-y = 0
+scale = 105
+x = 5
+y = 7
 rotate = 0
 
 [grid.frames.A5]
 img = "bonus2.png"
-width = 127
+scale = 150
 x = 0
-y = 0
+y = -20
 rotate = 0
 
 [grid.frames.B1]
 img = "chapter4.png"
-width = 42
-x = 0
-y = 0
+scale = 96
+x = -7
+y = 8
 rotate = 0
 
 [grid.frames.B3]
 img = "chapter5.png"
-width = 55
-x = 0
-y = 0
+scale = 88
+x = -20
+y = 15
 rotate = 0
 
 [grid.frames.B4]
 img = "centerpiece.png"
-width = 105
+scale = 142
 x = 0
 y = 0
 rotate = 0
 
 [grid.frames.B5]
 img = "bonus1.png"
-width = 88
-x = 0
-y = 0
+scale = 96
+x = 13
+y = 13
 rotate = 0

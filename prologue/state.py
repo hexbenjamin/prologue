@@ -2,6 +2,7 @@ import math
 import reflex as rx
 
 from .config import CFG
+from .math import scale_min
 
 
 def calc_direction(start, end):
@@ -36,33 +37,35 @@ class PrologueState(rx.State):
 
     @rx.var
     def loc_x(self) -> str:
-        return f"calc(min({CFG.grid.container.scale}vw, {CFG.grid.container.scale}vh) * {self.pos_x})"
+        return f"calc({scale_min(CFG.grid.scale)} * {self.pos_x})"
 
     @rx.var
     def loc_y(self) -> str:
-        return f"calc(min({CFG.grid.container.scale}vw, {CFG.grid.container.scale}vh) * {self.pos_y})"
+        return f"calc({scale_min(CFG.grid.scale)} * {self.pos_y})"
 
     @rx.var
     def translation(self) -> str:
-        min_dim = f"min({CFG.grid.container.scale}vw, {CFG.grid.container.scale}vh)"
-        print(f"translate({self.loc_x}, {self.loc_y})")
         return f"translate({self.loc_x}, {self.loc_y})"
 
     def left(self):
         if self.pos_x != 0:
             self.pos_x += 1
+            # print(f"L: {self.translation}")
 
     def right(self):
         if self.pos_x != self.cols - 1:
             self.pos_x -= 1
+            # print(f"R: {self.translation}")
 
     def up(self):
         if self.pos_y != 0:
             self.pos_y += 1
+            # print(f"U: {self.translation}")
 
     def down(self):
         if self.pos_y != self.rows - 1:
             self.pos_y -= 1
+            # print(f"D: {self.translation}")
 
 
 class SwipeState(PrologueState):

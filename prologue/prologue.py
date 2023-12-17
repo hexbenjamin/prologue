@@ -29,14 +29,12 @@ def index() -> rx.Component:
         button_grid(),
         # ),
         frame_grid(),
-        position="fixed",
+        position="absolute",
+        top=0,
+        left=0,
         width="100vw",
         height="100vh",
-        display="flex",
-        justify_content="center",
-        align_items="center",
         overflow="hidden",
-        id="prologue",
     )
 
 
