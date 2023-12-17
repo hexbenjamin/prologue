@@ -2,7 +2,7 @@ import math
 import reflex as rx
 
 from .config import CFG
-from .math import scale_min
+from .math import scale_min, scale_max
 
 
 def calc_direction(start, end):
@@ -37,11 +37,11 @@ class PrologueState(rx.State):
 
     @rx.var
     def loc_x(self) -> str:
-        return f"calc({scale_min(CFG.grid.scale)} * {self.pos_x})"
+        return f"calc({scale_min()} * {self.pos_x})"
 
     @rx.var
     def loc_y(self) -> str:
-        return f"calc({scale_min(CFG.grid.scale)} * {self.pos_y})"
+        return f"calc({scale_min()} * {self.pos_y})"
 
     @rx.var
     def translation(self) -> str:
@@ -53,7 +53,7 @@ class PrologueState(rx.State):
             # print(f"L: {self.translation}")
 
     def right(self):
-        if self.pos_x != -(self.cols - 1):
+        if self.pos_x != -5:
             self.pos_x -= 1
             # print(f"R: {self.translation}")
 
@@ -63,7 +63,7 @@ class PrologueState(rx.State):
             # print(f"U: {self.translation}")
 
     def down(self):
-        if self.pos_y != -(self.rows - 1):
+        if self.pos_y != -2:
             self.pos_y -= 1
             # print(f"D: {self.translation}")
 

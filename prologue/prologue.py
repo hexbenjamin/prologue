@@ -28,7 +28,8 @@ def index() -> rx.Component:
         # rx.tablet_and_desktop(
         button_grid(),
         # ),
-        frame_grid(),
+        rx.mobile_and_tablet(frame_grid(mobile=True)),
+        rx.desktop_only(frame_grid()),
         position="absolute",
         top=0,
         left=0,

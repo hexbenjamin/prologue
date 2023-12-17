@@ -35,10 +35,10 @@
 .frame-grid {
     position: absolute;
     grid-template-areas:
-        "A1 A2 A3 B4 A5 A5"
+        "A1 A2 A3 A4 A5 A5"
         "B1 B2 B3 B4 B5 B6"
         "C1 C2 C3 C4 C5 C6";
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 0px 0px;
     transition: transform 1s ease-in-out;
