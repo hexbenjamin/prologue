@@ -3,14 +3,14 @@
 [buttons]
 color = "#ffaaff"  # icon color
 border_color = "#ffeeff"  # border color
-border_opacity = 160  # 0-255
+border_opacity = 0
 border_width = 2  # in px
 
 
 #+ GRID SETTINGS
 [grid]
 speed = 0.7  # in seconds
-scale = 93  # in %
+scale = 100  # in %
 
 
 #~ background
@@ -22,23 +22,23 @@ size = 420  # in px
 #~ frames
 [grid.frames.A1]
 img = "chapter1.png"
-scale = { "width" = 96, "height" = 0 }
-x = -2
-y = 7
+scale = 100
+x = 0
+y = 0
 rotate = 0
 
 [grid.frames.A2]
 img = "chapter2.png"
-scale = { "width" = 88, "height" = 0 }
+scale = 100
 x = 0
-y = -5
+y = 0
 rotate = 0
 
 [grid.frames.A3]
 img = "chapter3.png"
-scale = { "width" = 105, "height" = 0 }
-x = 5
-y = 7
+scale = 100
+x = 0
+y = 0
 rotate = 0
 
 [grid.frames.A5]
@@ -50,28 +50,28 @@ rotate = 0
 
 [grid.frames.B1]
 img = "chapter4.png"
-scale = { "width" = 96, "height" = 0 }
-x = -7
-y = 8
+scale = 100
+x = 0
+y = 0
 rotate = 0
 
 [grid.frames.B3]
 img = "chapter5.png"
-scale = { "width" = 88, "height" = 0 }
-x = -20
-y = 15
+scale = 100
+x = 0
+y = 0
 rotate = 0
 
 [grid.frames.B4]
 img = "centerpiece.png"
-scale = { "width" = 120, "height" = 0 }
+scale = 150
 x = 0
 y = 0
 rotate = 0
 
 [grid.frames.B5]
 img = "bonus1.png"
-scale = { "width" = 96, "height" = 0 }
-x = 18
-y = 5
+scale = 100
+x = 0
+y = 0
 rotate = 0

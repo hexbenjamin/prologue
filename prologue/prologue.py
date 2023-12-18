@@ -25,11 +25,14 @@ def index() -> rx.Component:
             document.addEventListener('mousemove', handleMoveEvent);
             document.addEventListener('touchmove', handleMoveEvent);"""
         ),
-        # rx.tablet_and_desktop(
-        button_grid(),
-        # ),
-        rx.mobile_and_tablet(frame_grid(mobile=True)),
-        rx.desktop_only(frame_grid()),
+        rx.desktop_only(
+            button_grid(),
+            frame_grid(mobile=False),
+        ),
+        rx.mobile_and_tablet(
+            button_grid(),
+            frame_grid(mobile=True),
+        ),
         position="absolute",
         top=0,
         left=0,

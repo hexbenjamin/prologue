@@ -10,14 +10,14 @@ from ..config import CFG
 def frame_grid(mobile: bool = False):
     # print(scale_min())
     grid = rx.grid(
-        *make_frames(),
+        *make_frames(mobile),
         class_name="frame-grid",
-        template_columns=f"repeat(6, calc({scale_min()}))",
-        template_rows=f"repeat(3, calc({scale_min()}))",
+        template_columns="repeat(6, 100vw)",
+        template_rows="repeat(3, 100vh)",
         width="600vw",
-        height="450vh",
-        top=f"{(100 - CFG.grid.scale) / 2}vh",
-        left=f"{(100 - CFG.grid.scale) / 2}vw",
+        height="300vh",
+        top=0,
+        left=0,
     )
     return rx.box(
         grid,
@@ -36,7 +36,7 @@ def frame_grid(mobile: bool = False):
     )
 
 
-def make_frames():
+def make_frames(mobile: bool = False):
     frames = []
     for row, col in itertools.product("ABC", range(1, 7)):
         frame_id = f"{row}{col}"
@@ -51,20 +51,27 @@ def make_frames():
             img_width, img_height = get_img_dims(frame_dict["scale"])
 
             frm = rx.grid_item(
-                rx.image(
-                    src=img_src,
-                    width="auto",
-                    height="auto",
-                    # object_fit="contain" if frame_id == "B4" else "cover",
-                    transform=transform,
+                rx.container(
+                    rx.image(
+                        src=img_src,
+                        width=f"{frame_dict['scale']}%",
+                        height=f"{frame_dict['scale']}%",
+                        object_fit="contain",
+                        transform=transform,
+                    ),
+                    # align_items="center",
+                    # justify_content="center",
+                    center_content=True,
+                    width="100%",
+                    height="100%",
+                    padding=f"calc({scale_min(5)})",
                 ),
                 overflow="visible",
                 area=frame_id,
-                align_items="center",
-                justify_content="center",
                 class_name="frame",
-                width=img_width,
-                height=img_height,
+                # width=width,
+                # height=height,
+                position="relative",
             )
 
             frames.append(frm)

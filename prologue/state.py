@@ -19,11 +19,11 @@ class PrologueState(rx.State):
 
     @rx.var
     def loc_x(self) -> str:
-        return f"calc({scale_min()} * {self.pos_x})"
+        return f"{self.pos_x * 100}vw"
 
     @rx.var
     def loc_y(self) -> str:
-        return f"calc({scale_min()} * {self.pos_y})"
+        return f"{self.pos_y * 100}vh"
 
     @rx.var
     def translation(self) -> str:

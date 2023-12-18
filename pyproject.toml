@@ -10,8 +10,8 @@ reflex = "^0.3.6"
 addict = "^2.4.0"
 toml = "^0.10.2"
 
-[tool.poetry.dev-dependencies]
-sourcery = "^1.14.0"
+# [tool.poetry.dev-dependencies]
+# sourcery = "^1.14.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
