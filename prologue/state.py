@@ -18,16 +18,8 @@ class PrologueState(rx.State):
         self.pos_y = 0
 
     @rx.var
-    def loc_x(self) -> str:
-        return f"{self.pos_x * 100}vw"
-
-    @rx.var
-    def loc_y(self) -> str:
-        return f"{self.pos_y * 100}vh"
-
-    @rx.var
     def translation(self) -> str:
-        return f"translate({self.loc_x}, {self.loc_y})"
+        return f"translate({self.pos_x * 100}vw, {self.pos_y * 100}vh)"
 
     def left(self):
         if self.pos_x != 0:
